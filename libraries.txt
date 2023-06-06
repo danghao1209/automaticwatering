@@ -1,0 +1,10 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+DHT sensor library for ESPx
+WiFi
+Adafruit ILI9341
+ArduinoJson
+ESP32Servo
+Time
+NTPClient

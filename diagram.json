@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "Dang Hao",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 255.71, "left": 237.02, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -78.24,
+      "left": 42.08,
+      "attrs": { "temperature": "41.4", "humidity": "21.5" }
+    },
+    {
+      "type": "wokwi-ili9341",
+      "id": "lcd1",
+      "top": 165.67,
+      "left": 548.34,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 535.22,
+      "left": 483.09,
+      "attrs": { "horn": "double" }
+    },
+    { "type": "wokwi-servo", "id": "servo2", "top": 599.98, "left": 211.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v505.42", "h308.25", "v-124.04" ] ],
+    [ "dht1:SDA", "esp:D21", "green", [ "v151.34", "h280.87", "v130.97" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v98.25", "h291.61", "v268.74" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-89.68", "v-98.16" ] ],
+    [ "servo1:V+", "esp:VIN", "red", [ "h-306.4", "v-98.99" ] ],
+    [ "servo1:PWM", "esp:D5", "green", [ "h-139.38", "v-173.8" ] ],
+    [ "esp:VIN", "servo2:V+", "red", [ "h-79.36", "v246.19" ] ],
+    [ "esp:GND.1", "servo2:GND", "black", [ "h16.46", "v189.13", "h-169.53", "v51.16" ] ],
+    [ "esp:D12", "servo2:PWM", "green", [ "h-58.03", "v-0.15", "h-50.11", "v281.38" ] ],
+    [ "lcd1:VCC", "esp:VIN", "red", [ "h-73.17", "v-137.75", "h-230", "v31.91" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-93.53", "v19.92" ] ],
+    [ "lcd1:CS", "esp:D15", "violet", [ "h-78.79", "v2.53" ] ],
+    [ "lcd1:RST", "esp:D4", "purple", [ "h-49.04", "v48.88" ] ],
+    [ "lcd1:D/C", "esp:D2", "#8f4814", [ "h-150.66", "v-0.73" ] ],
+    [ "lcd1:MOSI", "esp:D23", "green", [ "h-124.11", "v-44.68" ] ],
+    [ "lcd1:SCK", "esp:D18", "gray", [ "h-160.93", "v-0.46" ] ],
+    [ "lcd1:MISO", "esp:D19", "yellow", [ "h-60.73", "v-45.51" ] ]
+  ]
+}
